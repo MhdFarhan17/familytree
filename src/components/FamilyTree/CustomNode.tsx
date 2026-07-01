@@ -16,7 +16,7 @@ export default function CustomNode({ data }: CustomNodeProps) {
   const { t } = useLanguage();
 
   // Extract birth year for brief display
-  const birthYear = member.birth_date.split("-")[0];
+  const birthYear = member.birth_date ? member.birth_date.split("-")[0] : "?";
 
   return (
     <div
