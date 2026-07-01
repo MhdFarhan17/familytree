@@ -17,7 +17,8 @@ export default function LoginPage() {
   const [activeTab, setActiveTab] = useState<"contributor" | "admin">(
     "contributor",
   );
-  const [adminKey, setAdminKey] = useState("");
+  const [adminUsername, setAdminUsername] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
   const [adminError, setAdminError] = useState("");
 
   const [email, setEmail] = useState("");
@@ -26,12 +27,12 @@ export default function LoginPage() {
 
   const handleAdminLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (adminKey === "admin123") {
+    if (adminUsername === "adminsirga" && adminPassword === "#Awokwokkk69") {
       login("admin");
       toast.success(t("loginAdminSuccess") || "Admin access granted.");
     } else {
-      setAdminError(t("wrongKey"));
-      toast.error(t("wrongKey") || "Invalid admin key");
+      setAdminError(t("wrongKey") || "Invalid credentials");
+      toast.error(t("wrongKey") || "Invalid credentials");
     }
   };
 
@@ -187,16 +188,29 @@ export default function LoginPage() {
               <form onSubmit={handleAdminLogin} className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-foreground mb-1">
-                    {t("secretKey")}
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    value={adminUsername}
+                    onChange={(e) => {
+                      setAdminUsername(e.target.value);
+                      setAdminError("");
+                    }}
+                    placeholder="Enter admin username..."
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all outline-none font-mono mb-4"
+                  />
+                  <label className="block text-sm font-semibold text-foreground mb-1">
+                    Password
                   </label>
                   <input
                     type="password"
-                    value={adminKey}
+                    value={adminPassword}
                     onChange={(e) => {
-                      setAdminKey(e.target.value);
+                      setAdminPassword(e.target.value);
                       setAdminError("");
                     }}
-                    placeholder={t("placeholderKey")}
+                    placeholder="Enter admin password..."
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all outline-none font-mono"
                   />
                   {adminError && (
