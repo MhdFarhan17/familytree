@@ -12,6 +12,7 @@ export interface FamilyMember {
   id: string;
   full_name: string;
   nickname: string;
+  birth_date?: string | null;
   death_date?: string | null; // YYYY-MM-DD (optional)
   is_deceased?: boolean;
   gender: Gender;
