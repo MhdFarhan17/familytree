@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --radius: var(--radius);
+}
+
+:root {
+  /* Light Mode */
+  --background: #f8f9fa; /* Off-white */
+  --foreground: #1c1917; /* High contrast text */
+  --primary: #166534; /* Deep green */
+  --primary-foreground: #ffffff;
+  --secondary: #1e3a8a; /* Navy */
+  --secondary-foreground: #ffffff;
+  --muted: #e5e7eb;
+  --muted-foreground: #4b5563;
+  --border: #d1d5db;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark Mode */
+  --background: #0f172a; /* Deep elegant slate */
+  --foreground: #f8fafc; /* Crisp white */
+  --primary: #10b981; /* Vibrant green */
+  --primary-foreground: #ffffff;
+  --secondary: #3b82f6; /* Bright blue */
+  --secondary-foreground: #ffffff;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #334155;
+  --card: #1e293b; /* Distinct card background */
+  --card-foreground: #f8fafc;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 18px; /* Large legible fonts */
+  }
+}
+
+/* React Flow Controls Customization */
+.react-flow__controls-button {
+  @apply !bg-card !text-foreground !border-border !fill-foreground;
+  border-bottom: 1px solid var(--border) !important;
+}
+.react-flow__controls-button svg {
+  @apply !fill-foreground;
+}
+.react-flow__controls-button:hover {
+  @apply !bg-muted;
+}
+.react-flow__controls {
+  @apply !shadow-md !rounded-md overflow-hidden !border !border-border;
+}
