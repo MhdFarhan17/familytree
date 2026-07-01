@@ -24,7 +24,9 @@ export default function MembersPage() {
 
   // Group members logically (e.g. sort by birth date)
   const sortedMembers = [...filteredMembers].sort((a, b) => {
-    return new Date(a.birth_date).getTime() - new Date(b.birth_date).getTime();
+    const timeA = a.birth_date ? new Date(a.birth_date).getTime() : 0;
+    const timeB = b.birth_date ? new Date(b.birth_date).getTime() : 0;
+    return timeA - timeB;
   });
 
   return (
