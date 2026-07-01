@@ -237,7 +237,7 @@ export const translations: Translations = {
   wrongKey: { en: "Wrong secret key!", id: "Kunci rahasia salah!" },
   developerAccess: { en: "Developer Access", id: "Akses Developer" },
 
-  registerTitle: { en: "Family Registration", id: "Pendaftaran Keluarga" },
+  familyRegistrationTitle: { en: "Family Registration", id: "Pendaftaran Keluarga" },
   registerDesc: {
     en: "Fill in your details to join the SIRGA system.",
     id: "Lengkapi data untuk bergabung ke dalam sistem SIRGA.",
